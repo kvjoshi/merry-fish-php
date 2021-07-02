@@ -2,7 +2,7 @@
         ob_start();
         session_start();
         require 'connect.php';
-        echo getenv('MEMCACHIER_SERVERS');
+
 if(isset($_SESSION['u_id']))
 {
     header('location:dashboard.php');
