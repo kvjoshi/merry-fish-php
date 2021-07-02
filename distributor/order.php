@@ -51,17 +51,12 @@ if(isset($_POST['submit_add']))
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="lib/data-tables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="lib/data-tables/responsive.bootstrap4.min.css" rel="stylesheet">
-    <link href="lib/summernote/summernote-bs4.css" rel="stylesheet">
-    <link href="lib/sweet-alerts2/sweetalert2.min.css" rel="stylesheet">
-    <link href="css/sweet-alert-custom.css" rel="stylesheet">
+    
     <link href="css/style.css" rel="stylesheet">
     <link href="css/chosen.css" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script type="text/javascript">
-        var $perror = <?php if(isset($_GET['e'])){ echo "1";} else { echo "0";} ?>;
-        var $puploaded = <?php if(isset($_GET['s'])){ echo "1";}  else { echo "0";}?>;
-    </script>
+    
 </head>
 <body>
 
@@ -193,12 +188,9 @@ if(isset($_POST['submit_add']))
 <script type="text/javascript" src="lib/data-tables/dataTables.responsive.min.js"></script>
 <script type="text/javascript" src="lib/data-tables/responsive.bootstrap4.min.js"></script>
 <script src="js/plugins-custom/datatables-custom.js"></script>
-<script type="text/javascript" src="lib/summernote/summernote-bs4.min.js" ></script>
-<script type="text/javascript" src="js/plugins-custom/summernote-custom.js" ></script>
+
 <script src="js/chosen.jquery.js" type="text/javascript"></script>
-<!-- Sweetalerts2 js -->
-<script type="text/javascript" src="lib/sweet-alerts2/sweetalert2.min.js"></script>
-<script src="js/plugins-custom/sweetalert2-custom.js"></script>
+
 <script>
     $(document).ready(function(){
         $(".add_prod").click(function(){

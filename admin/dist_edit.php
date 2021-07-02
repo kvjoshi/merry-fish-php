@@ -61,15 +61,10 @@ if(isset($_POST['stat_up'])){
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="lib/data-tables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="lib/data-tables/responsive.bootstrap4.min.css" rel="stylesheet">
-    <link href="lib/summernote/summernote-bs4.css" rel="stylesheet">
-    <link href="lib/sweet-alerts2/sweetalert2.min.css" rel="stylesheet">
-    <link href="css/sweet-alert-custom.css" rel="stylesheet">
+    
 
     <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript">
-        var $serror = <?php if(isset($_GET['e'])){ echo "1";} else { echo "0";} ?>;
-        var $suploaded = <?php if(isset($_GET['s'])){ echo "1";}  else { echo "0";}?>;
-    </script>
+    
 </head>
 <body>
 
@@ -184,9 +179,7 @@ if(isset($_POST['stat_up'])){
 <script type="text/javascript" src="lib/data-tables/responsive.bootstrap4.min.js"></script>
 <script src="js/plugins-custom/datatables-custom.js"></script>
 
-<!-- Sweetalerts2 js -->
-<script type="text/javascript" src="lib/sweet-alerts2/sweetalert2.min.js"></script>
-<script src="js/plugins-custom/sweetalert2-custom.js"></script>
+
 
 </body>
 </html>
