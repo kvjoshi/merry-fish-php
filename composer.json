@@ -10,6 +10,7 @@
     }
   ],
   "require": {
-    "ext-memcached": "*"
+    "ext-memcached": "*",
+    "ext-mysqli": "*"
   }
 }
