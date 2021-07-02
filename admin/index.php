@@ -1,6 +1,9 @@
 <?php
         ob_start();
         session_start();
+        if (isset($_SESSION['test'])){
+            echo 'persit';
+        }
 ini_set('session.save_handler', 'memcached');
 ini_set('session.save_path', getenv('MEMCACHIER_SERVERS'));
 if(version_compare(phpversion('memcached'), '3', '>=')) {
@@ -13,6 +16,8 @@ if(version_compare(phpversion('memcached'), '3', '>=')) {
 ini_set('memcached.sess_sasl_username', getenv('MEMCACHIER_USERNAME'));
 ini_set('memcached.sess_sasl_password', getenv('MEMCACHIER_PASSWORD'));
         require 'connect.php';
+        $_SESSION['test']=1;
+        echo $_SESSION['test'];
 if(isset($_SESSION['u_id']))
 {
     header('location:dashboard.php');
