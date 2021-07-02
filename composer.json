@@ -1,0 +1,14 @@
+{
+  "name": "Karmavir/merry-fish",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Karmavir Joshi",
+      "email": "karmavirj@yandex.com"
+    }
+  ],
+  "require": {
+  }
+}
