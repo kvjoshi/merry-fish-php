@@ -18,7 +18,7 @@ $prod_query=mysqli_query($con,$prod_sql);
 if(isset($_POST['submit_add']))
 {
   $prod_id=$_POST['prod_id'];
-   $prod_price=$_POST['prod_price'];
+    $prod_price=$_POST['prod_price'];
   $prod_code=$_POST['prod_code'];
   $add_qty=$_POST['add_qty'];
 
@@ -27,7 +27,7 @@ if(isset($_POST['submit_add']))
     $n_size= $size + 1;
     $cu_sql="UPDATE `cart` SET `cart_size`= '$n_size' , `o_price` = '$n_op'  WHERE cart_id =".$c_id;
     $cu_query=mysqli_query($con,$cu_sql);
-     $oadd_sql="INSERT INTO `orders`(`o_uid`, `cart_id`, `o_product_id`, `o_product_code`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$u_id','$c_id','$prod_id','$prod_code','$add_qty','$prod_price','$tot_p','$ut')";
+     echo $oadd_sql="INSERT INTO `orders`(`o_uid`, `cart_id`, `o_product_id`, `o_product_code`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$u_id','$c_id','$prod_id','$prod_code','$add_qty','$prod_price','$tot_p','$ut')";
     $oadd_query=mysqli_query($con,$oadd_sql);
     //header("location:order.php");
 
@@ -100,13 +100,13 @@ if(isset($_POST['submit_add']))
                     <table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>Sr. No.</th>
-                            <th>Product Code</th>
-                            <th>Product Name</th>
-                            <th>MRP</th>
+                            <!-- <th>Sr. No.</th> -->
+                            <th>Code</th>
+                            <th>Name</th>
+                            <!-- <th>MRP</th> -->
                             <th>Price</th>
-                            <?php if ($ut==='1'){?><th>Price 2</th><?php }?>
-                            <th>Qty</th>
+                            <!-- <?php if ($ut==='1'){?><th>Price 2</th><?php }?> -->
+                            <!-- <th>Qty</th> -->
                             <th>Add To Cart</th>
                         </tr>
                         </thead>
@@ -115,17 +115,17 @@ if(isset($_POST['submit_add']))
                             $wx++;
                             ?>
                             <tr>
-                                <td><?php echo $wx; ?></td>
+                                <!-- <td><?php echo $wx; ?></td> -->
                                 <td><?php echo $row['p_name'];?></td>
                                 <td><?php echo $row['p_code'];?></td>
-                                <td><?php echo $row['p_mrp'];?></td>
+                                <!-- <td><?php echo $row['p_mrp'];?></td> -->
                                 <?php if($ut==='2'){ ?><td><?php echo $row['p_price2']; ?> </td> <?php } else { ?><td><?php echo $row['p_price1'];?></td><?php }?>
-                                <?php if($ut==='1'){ ?><td><?php echo $row['p_price2']; ?> </td> <?php }?>
-                                <td><?php echo $row['p_qty']; ?></td>
+                                <!-- <?php if($ut==='1'){ ?><td><?php echo $row['p_price2']; ?> </td> <?php }?> -->
+                                <!-- <td><?php echo $row['p_qty']; ?></td> -->
                                 <td>
-                                    <button class="btn btn-icon  btn-rounded  btn-outline-success ml-1 add_prod" type="button" data-toggle="modal" data-target="#add_qty_modal" onclick="$add_prod_id = '<?php echo $row['p_id'];?>' ; $add_prod_code= '<?php echo $row['p_code'];?>'; $add_price= '<?php if($ut==='1'){echo $row['p_price1'];} elseif($ut==='2'){echo $row['p_price2'];}?>';">
-                                        <i class="fa fa-cart-plus"></i>
-                                        Add
+                                    <button class="btn btn-icon  btn-rounded  btn-outline-success add_prod" type="button" data-toggle="modal" data-target="#add_qty_modal" onclick="$add_prod_id = '<?php echo $row['p_id'];?>' ; $add_prod_code= '<?php echo $row['p_code'];?>'; $add_price= '<?php if($ut==='1'){echo $row['p_price1'];} elseif($ut==='2'){echo $row['p_price2'];}?>';">
+                                        <i class="fa fa-cart-plus"></i>   
+                                        Add                         
                                     </button>
                                 </td>
                             </tr>

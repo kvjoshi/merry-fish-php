@@ -17,13 +17,15 @@ if (isset($_POST['add_p'])){
     $p_name=$_POST['p_name'];
     $p_code=$_POST['p_code'];
     $p_qty=$_POST['p_qty'];
+    $p_cat=$_POST['p_cat'];
     $p_lending_price=$_POST['p_lending_price'];
     $p_mrp=$_POST['p_mrp'];
     $p_price1=$_POST['p_price1'];
     $p_price2=$_POST['p_price2'];
 
-    $prod_add_sql="INSERT INTO products (p_code, p_name, p_qty, p_mrp, p_lending_price, p_price1, p_price2) VALUES ('$p_code','$p_name','$p_qty','$p_mrp','$p_lending_price','$p_price1','$p_price2')";
+    echo $prod_add_sql="INSERT INTO products (p_code, p_name,p_cat, p_qty, p_mrp, p_lending_price, p_price1, p_price2) VALUES ('$p_code','$p_name','$p_cat','$p_qty','$p_mrp','$p_lending_price','$p_price1','$p_price2')";
     $prod_add_query=mysqli_query($con,$prod_add_sql);
+    header("location:product.php");
 }
 
 ?>
@@ -145,6 +147,7 @@ if (isset($_POST['add_p'])){
                             <th>Sr. No.</th>
                             <th>Product Code</th>
                             <th>Product Name</th>
+                            <th>Product Cat</th>
                             <th>Product Quantity</th>
                             <th>Product L.P.</th>
                             <th>Product MRP</th>
@@ -166,6 +169,7 @@ if (isset($_POST['add_p'])){
                                 <td><?php echo $wx; ?></td>
                                 <td><?php echo $row['p_code'];?></td>
                                 <td><?php echo $row['p_name'];?></td>
+                                <td><?php echo $row['p_cat'];?></td>
                                 <td><?php echo $row['p_qty'];?></td>
                                 <td><?php echo $row['p_lending_price']; ?></td>
                                 <td><?php echo $row['p_mrp'];?></td>
@@ -231,6 +235,9 @@ if (isset($_POST['add_p'])){
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="p_code" placeholder="Product Code">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="p_cat" placeholder="Product Category">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="p_qty" placeholder="Product Quantity">

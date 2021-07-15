@@ -22,11 +22,19 @@ if (isset($_POST['sign_up'])){
     }
    */
     if($pass===$c_pass){
-        $signup_sql="INSERT INTO `distributor`(`d_name`, `dist_id`, `d_address`, `d_username`, `d_password`, `d_phone`,`d_gst`, `d_email`) VALUES ('$d_name','$dist_id','$d_address','$d_username','$pass','$d_phone','$d_gst','$d_email')";
+      echo  $signup_sql="INSERT INTO `distributor`(`d_name`, `dist_id`, `d_address`, `d_username`, `d_password`, `d_phone`,`d_gst`, `d_email`) VALUES ('$d_name','$dist_id','$d_address','$d_username','$pass','$d_phone','$d_gst','$d_email')";
         $signup_query=mysqli_query($con,$signup_sql);
+        if($signup_query){
+            header("location:index.php");
+        }
+        else{
+            echo "error";
+        }
+        
 
-        header("location:index.php");
-
+    }
+    else{
+        header("location:sign_up.php");
     }
 }
 

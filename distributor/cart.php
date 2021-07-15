@@ -12,7 +12,7 @@ $cg_query=mysqli_query($con,$cg_sql);
 $cg_acc=mysqli_fetch_assoc($cg_query);
 $size=$cg_acc['cart_size'];
 $total_p=$cg_acc['o_price'];
-$of_sql="SELECT * FROM `orders` WHERE cart_id =".$c_id;
+echo $of_sql="SELECT * FROM `orders` WHERE cart_id =".$c_id;
 $of_query=mysqli_query($con,$of_sql);
 
 

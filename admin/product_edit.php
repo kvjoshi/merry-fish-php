@@ -8,6 +8,7 @@ $fetch_ss=mysqli_query($con,$fetch_sp_sql);
 $row_ss = mysqli_fetch_assoc($fetch_ss);
 $name = $row_ss['p_name'];
 $code = $row_ss['p_code'];
+$cat = $row_ss['p_cat'];
 $qty = $row_ss['p_qty'];
 $lending_price = $row_ss['p_lending_price'];
 $mrp = $row_ss['p_mrp'];
@@ -18,6 +19,7 @@ $price2 = $row_ss['p_price2'];
 if(isset($_POST['edit_ss'])){
     $p_name=$_POST['p_name'];
     $p_code=$_POST['p_code'];
+    $p_cat = $_POST['p_cat'];
     $p_qty=$_POST['p_qty'];
     $p_lending_price=$_POST['p_lending_price'];
     $p_mrp=$_POST['p_mrp'];
@@ -26,7 +28,7 @@ if(isset($_POST['edit_ss'])){
 
 
 
-    $sql="UPDATE `products` SET `sp_name`='".$name."' ,`sp_code`='".$code."',`sp_mod`='".$mod."',`sp_mrp`='".$mrp."',`sp_pack`='".$pack."' WHERE `sp_id`= ".$sp_id;
+    $sql="UPDATE `products` SET `p_name`='".$p_name."' ,`p_code`='".$code."',`sp_mod`='".$mod."',`sp_mrp`='".$mrp."',`sp_pack`='".$pack."' WHERE `sp_id`= ".$sp_id;
     $sql_query=mysqli_query($con,$sql);
 
     header("location:product.php");
@@ -108,6 +110,10 @@ if(isset($_POST['edit_ss'])){
                                 <input type="text" class="form-control" name="p_code" placeholder="Product Code" value="<?php echo $code; ?>">
                             </div>
                             <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" class="form-control" name="p_cat" placeholder="Product Mrp" value="<?php echo $cat; ?>">
+                            </div>
+                            <div class="form-group">
                                 <label>Quantity</label>
                                 <input type="text" class="form-control" name="p_qty" placeholder="Product Quantity" value="<?php echo $qty; ?>">
                             </div>
@@ -115,10 +121,12 @@ if(isset($_POST['edit_ss'])){
                                 <label>Lending Price</label>
                                 <input type="text" class="form-control" name="p_lending_price" placeholder="Product Lending Price" value="<?php echo $lending_price; ?>">
                             </div>
+                            
                             <div class="form-group">
                                 <label>MRP</label>
                                 <input type="text" class="form-control" name="p_mrp" placeholder="Product Mrp" value="<?php echo $mrp; ?>">
                             </div>
+                           
                             <div class="form-group">
                                 <label>Price 1</label>
                                 <input type="text" class="form-control" name="p_price1" placeholder="Product Price 1" value="<?php echo $price1; ?>">
