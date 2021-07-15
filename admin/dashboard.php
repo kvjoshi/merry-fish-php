@@ -10,6 +10,20 @@ require 'session_check.php';
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
+    <link rel="manifest" href="manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Merry Fish">
+<meta name="apple-mobile-web-app-title" content="Merry Fish">
+<meta name="theme-color" content="#000000">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="msapplication-starturl" content="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" sizes="316x374" href="./images/logo.png">
+<link rel="apple-touch-icon" sizes="316x374" href="./images/logo.png">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Dashboard</title>
         <!-- Bootstrap-->

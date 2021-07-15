@@ -8,6 +8,10 @@ if(isset($_GET['cid'])){
     $o_sql="SELECT * FROM `orders` WHERE `cart_id` = ".$cart_id;
     $o_query=mysqli_query($con,$o_sql);
     $o_count=mysqli_num_rows($o_query);
+    $c_sql="SELECT * FROM `cart` WHERE `cart_id` = ".$cart_id;
+    $c_query=mysqli_query($con,$c_sql);
+    $c_assoc = mysqli_fetch_assoc($c_query);
+    $cart_total = $c_assoc['o_price'];
 }
 else{
     header( "location:pend_ord.php" );
@@ -21,11 +25,12 @@ else{
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Distributor Edit Status</title>
+    <title>View Order</title>
     <!-- Bootstrap-->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Common Plugins CSS -->
     <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--fonts-->
     <link href="lib/line-icons/line-icons.css" rel="stylesheet">
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
@@ -53,7 +58,7 @@ else{
                                 </div>
                                 <div class="list-body">
                                     <div class="list-title fs-2x">
-                                        <h3>VIew Order</h3>
+                                        <h3>View Order</h3>
                                     </div>
                                 </div>
                             </div>
@@ -72,8 +77,58 @@ else{
         </div>
         <div class="page-content">
             <div class="container-fluid">
+                <div class="row cancel-row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="portlet-box portlet-gutter  mb-10 row ">
+                            <div class="portlet-header flex-row flex d-flex align-items-center b-b">
+                                <div class="flex d-flex flex-column">
+                                    <h3>Order Details</h3>
+                                </div>
 
-                <div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30 row">
+                            </div>
+                            <div class="portlet-body row justify-content-center ">
+                                <div class="col-lg-4 col-md-4 col-sm-6 d-flex mb-2">
+                                    <div class="list-alt bg-success rounded">
+                                        <div class="list-item">
+                                            <div class="list-thumb">
+                                                <i class="icon-Basket-Quantity fs-2x"></i>
+                                            </div>
+                                            <div class="list-body">
+                                            <span class="list-title">
+                                                <?php echo $o_count;?>
+                                            </span>
+                                                <span class="list-content">
+                                                Products
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--col-->
+                                <div class="col-lg-4 col-md-4 col-sm-6 d-flex mb-2">
+                                    <div class="list-alt bg-info rounded">
+                                        <div class="list-item">
+                                            <div class="list-thumb">
+                                                <i class="icon-Money-Bag fs-2x"></i>
+                                            </div>
+                                            <div class="list-body">
+                                            <span class="list-title">
+                                                <?php echo $cart_total;?>
+                                            </span>
+                                                <span class="list-content">
+                                                Order Total
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--col-->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30 ">
                     <h6 class="pl-3 pr-3 text-capitalize font400 mb-20">Order List</h6>
                     <table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
                         <thead>
@@ -100,9 +155,6 @@ else{
                         </tbody>
                     </table>
                 </div>
-
-
-
 
 
             </div>

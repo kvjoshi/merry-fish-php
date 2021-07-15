@@ -15,6 +15,36 @@ $up_address = $row_u['d_address'];
 $up_gst = $row_u['d_gst'];
 $up_password = $row_u['d_password'];
 
+if (isset($_POST['e_profile'])){
+    $new_email=$_POST['new_email'];
+    $new_phone=$_POST['new_phone'];
+
+    $update_profile_sql="UPDATE `distributor` SET `d_phone` = '$new_phone' , `d_email` = '$new_email' WHERE `d_id` = ".$u_id;
+    $update_profile_query=mysqli_query($con,$update_profile_sql);
+    header("location:profile.php");
+}
+if(isset($_POST['e_pass'])){
+    $new_pass=$_POST['n_pass'];
+    $conf_pass=$_POST['c_pass'];
+    $check_pass=$_POST['current_pass'];
+    if ($up_password===$check_pass && $new_pass === $conf_pass)
+    {
+        $update_pass_sql="UPDATE `distributor` SET `d_password` = '$new_pass' WHERE `d_id` = ".$u_id;
+        $update_pass_query=mysqli_query($con,$update_pass_sql);
+        echo '<script>alert("Password Changed!");</script>';
+
+    }
+    else
+    {
+        if($up_password!==$check_pass){
+        echo '<script>alert("Check Current Password")</script>';
+        }
+        if($new_pass!==$conf_pass){
+            echo '<script>alert("Password and Confirm Password Not Same")</script>';
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -140,46 +170,21 @@ $up_password = $row_u['d_password'];
                                                         <span class="rounded">Profile Settings</span>
                                                     </div>
                                                     <form method="post" enctype="multipart/form-data">
-                                                        <div class="row">
-                                                            <div class="col-sm-8">
-                                                                <div class="form-group">
-                                                                    <label for="d_name">Firm Name</label>
-                                                                    <input type="text" class="form-control" name="d_name" id="d_name" value="<?php echo $up_name; ?>" placeholder="Firm Name" required>
-                                                                </div>
-                                                            </div>
 
-                                                        </div>
                                                         <div class="row">
+
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <label for="d_username">Username</label>
-                                                                    <input type="text" class="form-control" name="d_username" id="d_username" value="<?php echo $up_username; ?>"  required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label for="d_email">Email Address</label>
-                                                                    <input type="email" class="form-control" name="d_email" id="d_email" value="<?php echo $up_email; ?>" placeholder="Email" required>
+                                                                    <label for="new_email">Email Address</label>
+                                                                    <input type="email" class="form-control" name="new_email" id="new_email" value="<?php echo $up_email; ?>" placeholder="Email" required>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <label for="d_phone">Phone</label>
-                                                                    <input type="text" class="form-control" name="d_phone" id="d_phone" value="<?php echo $up_phone; ?>" placeholder="Phone" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label for="d_gst">GST No.</label>
-                                                                    <input type="text" class="form-control" name="d_gst" id="d_gst" value="<?php echo $up_gst; ?>" placeholder="GST No." required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12">
-                                                                <div class="form-group">
-                                                                    <label for="d_address">Address</label>
-                                                                    <input type="text" class="form-control" name="d_address" id="d_address" value="<?php echo $up_address; ?>" placeholder="Address" required>
+                                                                    <label for="new_phone">Phone</label>
+                                                                    <input type="text" class="form-control" name="new_phone" id="new_phone" value="<?php echo $up_phone; ?>" placeholder="Phone" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -201,19 +206,19 @@ $up_password = $row_u['d_password'];
                                                             <div class="col-sm-12">
                                                                 <div class="form-group">
                                                                     <label for="current_pass">Old Password</label>
-                                                                    <input type="password" class="form-control" name="current_pass" id="current_pass" placeholder="*****">
+                                                                    <input type="password" class="form-control" name="current_pass" id="current_pass" placeholder="*****" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="n_pass">New Password</label>
-                                                                    <input type="password" class="form-control" name="n_pass" id="n_pass" placeholder="New Password">
+                                                                    <input type="password" class="form-control" name="n_pass" id="n_pass" placeholder="New Password" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="c_pass">Confirm Password</label>
-                                                                    <input type="text" class="form-control" name="c_pass" id="c_pass" placeholder="Confirm Password">
+                                                                    <input type="text" class="form-control" name="c_pass" id="c_pass" placeholder="Confirm Password" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12">

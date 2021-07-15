@@ -50,7 +50,21 @@ if(isset($_POST['stat_up'])){
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="manifest" href="manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Merry Fish">
+<meta name="apple-mobile-web-app-title" content="Merry Fish">
+<meta name="theme-color" content="#000000">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="msapplication-starturl" content="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" sizes="316x374" href="./images/logo.png">
+<link rel="apple-touch-icon" sizes="316x374" href="./images/logo.png">
+ 
     <title>Distributor Edit Status</title>
     <!-- Bootstrap-->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

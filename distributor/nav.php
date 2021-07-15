@@ -49,7 +49,8 @@
                     </li>
 
                     <li> <i class="icon-Add-Bag nav-thumbnail"></i>
-                        <a href="order.php">Products</a>
+                        <a href="order.php">
+                            Order Products</a>
                     </li><!--Menu-item-->
 
 

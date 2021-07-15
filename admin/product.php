@@ -35,7 +35,21 @@ if (isset($_POST['add_p'])){
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="manifest" href="manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Merry Fish">
+<meta name="apple-mobile-web-app-title" content="Merry Fish">
+<meta name="theme-color" content="#000000">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="msapplication-starturl" content="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" sizes="316x374" href="./images/logo.png">
+<link rel="apple-touch-icon" sizes="316x374" href="./images/logo.png">
+ 
     <title>Products</title>
     <!-- Bootstrap-->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -271,15 +285,13 @@ if (isset($_POST['add_p'])){
 <!-- Common plugins -->
 <script type="text/javascript" src="js/plugins/plugins.js"></script>
 <script type="text/javascript" src="js/appUi-custom.js"></script>
-<!-- Required datatable js -->
 
+<!-- Required datatable js -->
 <script type="text/javascript" src="lib/data-tables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="lib/data-tables/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="lib/data-tables/dataTables.responsive.min.js"></script>
 <script type="text/javascript" src="lib/data-tables/responsive.bootstrap4.min.js"></script>
 <script src="js/plugins-custom/datatables-custom.js"></script>
-
-
 
 
 </body>

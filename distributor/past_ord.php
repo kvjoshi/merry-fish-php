@@ -118,10 +118,9 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <th>Date</th>
                             <th>View Items</th>
                             <th>Order Size</th>
-                            <th>Tracking ID</th>
                             <th>Status</th>
                             <th>Invoice Total</th>
-                            <th>Download</th>
+                            <!--<th>Download</th>-->
                         </tr>
                         </thead>
 
@@ -135,15 +134,13 @@ $ords_query=mysqli_query($con,$ords_sql);
                                 <td><?php echo $row['cart_end_date'];?></td>
                                 <td><a style="text-decoration: none" href="view_order.php?cid=<?php echo $row['cart_id'];?>">Click Here</a></td>
                                 <td><?php echo $row['cart_size'];?></td>
-                                <td><?php if ($row['cart_status']==2){ echo "Not Shipped";} elseif ($row['cart_status']==3){ echo $row['o_tracking_id']; }?>
-
                                 <td><?php if ($row['cart_status']==2){ echo "Confirmed";} elseif($row['cart_status']==3) { echo "Shipped"; } ?></td>
                                 <td><?php echo $row['o_price'];?></td>
-                                <td>
-                                    <a class=" btn-icon-o radius100 btn-icon-md btn btn-success mr-2 mb-2 " href="<?php echo $row['invoice_file'];?>" download>
+                                <!--<td>
+                                    <a class=" btn-icon-o radius100 btn-icon-md btn btn-success mr-2 mb-2 " href="<?php /*echo $row['invoice_file'];*/?>" download>
                                         <i class="fa fa-download"></i>
                                     </a>
-                                </td>
+                                </td>-->
                             </tr>
                         <?php } ?>
                         </tbody>

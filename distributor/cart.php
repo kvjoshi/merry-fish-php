@@ -12,7 +12,7 @@ $cg_query=mysqli_query($con,$cg_sql);
 $cg_acc=mysqli_fetch_assoc($cg_query);
 $size=$cg_acc['cart_size'];
 $total_p=$cg_acc['o_price'];
-echo $of_sql="SELECT * FROM `orders` WHERE cart_id =".$c_id;
+$of_sql="SELECT * FROM `orders` WHERE cart_id =".$c_id;
 $of_query=mysqli_query($con,$of_sql);
 
 
@@ -22,10 +22,16 @@ if(isset($_POST['del_sub']))
 {
     $del_id=$_POST['del_id'];
     $size=$size-1;
-    $cu_sql="UPDATE `cart` SET `cart_size`= '$size'  WHERE cart_id =".$c_id;
-    $cu_query=mysqli_query($con,$cu_sql);
+
     $del_sql="DELETE FROM orders WHERE o_id =".$del_id ;
     $del_query=mysqli_query($con,$del_sql);
+    $new_order_total_sql= "SELECT SUM(`o_price_total`) from `orders` WHERE `cart_id` = ".$c_id;
+    $new_order_total_query=mysqli_query($con,$new_order_total_sql);
+    $new_order_total_assoc=mysqli_fetch_assoc($new_order_total_query);
+    echo $new_order_total=$new_order_total_assoc['SUM(`o_price_total`)'];
+    echo $cu_sql="UPDATE `cart` SET `cart_size`= '$size' , `o_price` = '$new_order_total' WHERE cart_id =".$c_id;
+    $cu_query=mysqli_query($con,$cu_sql);
+
     header("location:cart.php");
 }
 
@@ -61,9 +67,11 @@ if(isset($_POST['cart_confirm']))
     $upc_id="UPDATE `distributor` SET `f_cart`= 1 , `dcart_id`= '$cid' where `d_id`=".$u_id;
     $upc_query=mysqli_query($con,$upc_id);
     $_SESSION['cart']=$cid;
-    header("location:cart.php");
+    header("location:cart.php?p");
 }
-
+if (isset($_GET['p'])){
+    echo '<script>alert("Order Placed!");</script>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -216,7 +224,6 @@ if(isset($_POST['cart_confirm']))
                     <table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>Sr. No.</th>
                             <th>Product Code</th>
                             <th>Price Per Item</th>
                             <th>Total Price</th>
@@ -226,10 +233,10 @@ if(isset($_POST['cart_confirm']))
                         </thead>
                         <tbody>
                         <?php while ($row=mysqli_fetch_assoc($of_query)){
-                            $wx++;
+
                             ?>
                             <tr>
-                                <td><?php echo $wx; ?></td>
+
                                 <td><?php echo $row['o_product_code'];?></td>
                                 <td><?php echo $row['o_price'] ; ?></td>
                                 <td><?php echo $row['o_price_total'] ; ?></td>
