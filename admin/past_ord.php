@@ -21,8 +21,10 @@ $ords_query=mysqli_query($con,$ords_sql);
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Common Plugins CSS -->
     <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--fonts-->
     <link href="lib/line-icons/line-icons.css" rel="stylesheet">
+
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="lib/data-tables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="lib/data-tables/responsive.bootstrap4.min.css" rel="stylesheet">
@@ -67,7 +69,7 @@ $ords_query=mysqli_query($con,$ords_sql);
         </div>
         <div class="page-content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row cancel-row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="portlet-box portlet-gutter  mb-10 row">
                             <div class="portlet-header flex-row flex d-flex align-items-center b-b">
@@ -105,24 +107,24 @@ $ords_query=mysqli_query($con,$ords_sql);
 
 
 
-                <div class="row bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30 ">
-                    <h6 class="pl-3 pr-3 text-capitalize font400 mb-20">Past Orders Summary</h6>
-                    <table id="data-table" class="table mb-0 table-striped">
+                <div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30 ">
+                    <h6 class="pl-3 pr-3 text-capitalize mb-20">Past Orders Summary</h6>
+                    <table id="data-table" class="table  table-striped">
                         <thead>
                         <tr>
-
                             <th>Sr. No.</th>
                             <th>Order ID</th>
                             <th>Date</th>
                             <th>Dist Name</th>
                             <th>Tier</th>
-                            <th>Tracking ID</th>
+<!--                        <th>Tracking ID</th>      -->
                             <th>Status</th>
-                            <th>View Order</th>
                             <th>Invoice Amount</th>
+                            <th>View Order</th>
+                            <!--
                             <th>Invoice</th>
                             <th>Edit</th>
-
+                            -->
                         </tr>
                         </thead>
                         <tbody>
@@ -135,33 +137,34 @@ $ords_query=mysqli_query($con,$ords_sql);
                                 <td><?php echo $row['cart_end_date'];?></td>
                                 <td><?php echo $row['d_name'];?></td>
                                 <td><?php echo $row['cart_size'];?></td>
-                                <td><?php if ($row['cart_status']==2){ echo "Not Shipped";} elseif ($row['cart_status']==3){ echo $row['o_tracking_id']; }?>
+<!--                                <td>--><?php //if ($row['cart_status']==2){ echo "Not Shipped";} elseif ($row['cart_status']==3){ echo $row['o_tracking_id']; }?>
 
                                 <td><?php if ($row['cart_status']==2){ echo "Confirmed";} elseif($row['cart_status']==3) { echo "Shipped"; } ?></td>
-                                <td><a style="text-decoration: none" href="view_order.php?cid=<?php echo $row['cart_id'];?>">Click Here</a></td>
-
                                 <td><?php echo $row['o_price'];?></td>
+                                <td><a class="btn btn-outline-success" href="view_order.php?cid=<?php echo $row['cart_id'];?>">Click Here</a></td>
+                                <!--
                                 <td>
-                                    <a class=" btn-icon-o radius100 btn-icon-md btn btn-success mr-2 mb-2 " href="../distributor/<?php echo $row['invoice_file'];?>" download>
+                                    <a class=" btn-icon-o radius100 btn-icon-md btn btn-success mr-2 mb-2 " href="../distributor/<?php /*echo $row['invoice_file'];*/?>" download>
                                         <i class="fa fa-download"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <?php if ($row['cart_status']==2){
-                                        ?>
+                                    <?php /*if ($row['cart_status']==2){
+                                        */?>
                                         <form>
-                                            <input name="cid" value="<?php echo $row['cart_id'];?>" type="hidden">
+                                            <input name="cid" value="<?php /*echo $row['cart_id'];*/?>" type="hidden">
                                         <button class="btn btn-icon btn-rounded btn-success ml-1" type="submit" name="del_sub">
                                             <i class="fa fa-edit"></i>
                                             Edit
                                         </button>
                                         </form>
-                                        <?php }
+                                        <?php /*}
                                         elseif($row['cart_status']==3)
                                         { echo "Shipped"; }
-                                        ?>
+                                        */?>
 
                                 </td>
+                                -->
                             </tr>
 
                         <?php } ?>

@@ -56,6 +56,7 @@ if(isset($_POST['stat_up'])){
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Common Plugins CSS -->
     <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--fonts-->
     <link href="lib/line-icons/line-icons.css" rel="stylesheet">
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
@@ -102,7 +103,7 @@ if(isset($_POST['stat_up'])){
         </div>
         <div class="page-content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="">
                     <div class="col-lg-10 col-md-12 col-sm-12">
                         <div class="portlet-box portlet-gutter  mb-10 row">
                             <div class="portlet-header flex-row flex d-flex align-items-center b-b">

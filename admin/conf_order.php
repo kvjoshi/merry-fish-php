@@ -25,11 +25,12 @@ else{
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Distributor Edit Status</title>
+    <title>Confirm | View Order</title>
     <!-- Bootstrap-->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Common Plugins CSS -->
     <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--fonts-->
     <link href="lib/line-icons/line-icons.css" rel="stylesheet">
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
@@ -76,7 +77,7 @@ else{
         </div>
         <div class="page-content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="portlet-box portlet-gutter  mb-10 ">
                             <div class="portlet-header flex-row flex d-flex align-items-center b-b">
@@ -85,7 +86,7 @@ else{
                                 </div>
                             </div>
                             <div class="portlet-body">
-                                <form method="post" enctype="multipart/form-data" action="invoice_up.php">
+                                <form method="post" enctype="multipart/form-data" action="conf-script.php">
                                     <div class="form-row">
                                         <div class="form-group col-lg-2 col-md-4 col-sm-6">
                                             <span> Cart Size : </span>
@@ -105,6 +106,7 @@ else{
                                             <label for="o_price"> Invoice Amount : </label>
                                             <input type="text" name="o_price" id="o_price" class="form-control" placeholder="Invoice Price">
                                         </div>
+                                        <!-- UNCOMMENT TO ENABLE UPLOAD
                                         <div class="form-group col-lg-2 col-md-4 col-sm-6">
                                             <label> Order File : </label>
                                             <div class="custom-file">
@@ -113,6 +115,7 @@ else{
                                             </div>
 
                                         </div>
+                                        -->
                                         </div>
                                         <div class="form-row ">
                                             <div class="form-group col-lg-3 col-md-4 col-sm-6">
@@ -127,7 +130,7 @@ else{
                     </div>
                 </div>
                 <div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30">
-                    <h6 class="pl-3 pr-3 text-capitalize font400 mb-20">Order List</h6>
+                    <h6 class="pl-3 pr-3 text-capitalize  mb-20">Order List</h6>
                     <table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
                         <thead>
                         <tr>

@@ -31,11 +31,13 @@ if(isset($_POST['del_sub'])){
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Common Plugins CSS -->
     <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--fonts-->
     <link href="lib/line-icons/line-icons.css" rel="stylesheet">
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="lib/data-tables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="lib/data-tables/responsive.bootstrap4.min.css" rel="stylesheet">
+
     
 
     <link href="css/style.css" rel="stylesheet">
@@ -77,7 +79,7 @@ if(isset($_POST['del_sub'])){
         </div>
         <div class="page-content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row cancel-row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="portlet-box portlet-gutter  mb-10 row">
                             <div class="portlet-header flex-row flex d-flex align-items-center b-b">
@@ -148,7 +150,7 @@ if(isset($_POST['del_sub'])){
 
 
 
-                <div class="row bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30 ">
+                <div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30 ">
                     <h6 class="pl-3 pr-3 text-capitalize font400 mb-20">Distributor List</h6>
                     <table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
                         <thead>

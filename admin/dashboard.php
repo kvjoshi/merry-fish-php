@@ -16,6 +16,7 @@ require 'session_check.php';
         <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!--Common Plugins CSS -->
         <link href="css/plugins/plugins.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
         <!--fonts-->
         <link href="lib/line-icons/line-icons.css" rel="stylesheet">
         <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">

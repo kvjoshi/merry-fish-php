@@ -23,6 +23,7 @@ $ords_query=mysqli_query($con,$ords_sql);
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Common Plugins CSS -->
     <link href="css/plugins/plugins.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--fonts-->
     <link href="lib/line-icons/line-icons.css" rel="stylesheet">
     <link href="lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
@@ -82,7 +83,7 @@ $ords_query=mysqli_query($con,$ords_sql);
                                     <div class="list-alt bg-warning-light rounded ">
                                         <div class="list-item">
                                             <div class="list-thumb">
-                                                <i class="icon-Full-Cart fs-2x"></i>
+                                                <i class="icon-Add-Cart fs-2x"></i>
                                             </div>
                                             <div class="list-body">
                                             <span class="list-title">
