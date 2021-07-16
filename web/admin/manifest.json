@@ -1,0 +1,17 @@
+{
+  "name": "Merry Fish B2B",
+  "short_name": "Merry Fish",
+  "description": "B2B Application To Place Order To Merry Fish",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "./images/logo.png",
+      "sizes": "316x374"
+    }
+  ],
+  "background_color": "#fff"
+}
