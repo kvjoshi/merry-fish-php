@@ -27,6 +27,7 @@ if(isset($_POST['update_cart_qty'])){
     $cu_query=mysqli_query($con,$cu_sql);
     $oadd_sql="UPDATE `orders` SET `o_quantity` = '$add_qty' , `o_price_total` = '$tot_p' WHERE `o_product_id`='$prod_id' AND `cart_id` = '$c_id'";
     $oadd_query=mysqli_query($con,$oadd_sql);
+    header("location:cart.php");
 }
 
 
@@ -126,7 +127,7 @@ if (isset($_GET['p'])){
                         <div class="list">
                             <div class="list-item pl-0">
                                 <div class="list-thumb ml-0 mr-3 pr-3  b-r text-muted">
-                                    <i class="icon-On-Off-3"></i>
+                                    <i class="icon-Full-Cart"></i>
                                 </div>
                                 <div class="list-body">
                                     <div class="list-title fs-2x">

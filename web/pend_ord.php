@@ -118,9 +118,10 @@ $ords_query=mysqli_query($con,$ords_sql);
 
                             <th>Sr. No.</th>
                             <th>Date</th>
-                            <th>View Items</th>
-                            <th>Order Size</th>
                             <th>Price</th>
+                           
+                            <th>Order Size</th>
+                            <th>View Items</th>
                             <th>Status</th>
 
                         </tr>
@@ -132,9 +133,10 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <tr>
                                 <td><?php echo $wx; ?></td>
                                 <td><?php echo $row['cart_end_date'];?></td>
-                                <td><a style="text-decoration: none" href="view_order.php?cid=<?php echo $row['cart_id'];?>">Click Here To View</a></td>
-                                <td><?php echo $row['cart_size'];?></td>
                                 <td><?php echo $row['o_price'];?></td>
+                                
+                                <td><?php echo $row['cart_size'];?></td>
+                                <td><a style="text-decoration: none" href="view_order.php?cid=<?php echo $row['cart_id'];?>">Click Here To View</a></td>
                                 <td>Pending Confirmation</td>
 
                             </tr>

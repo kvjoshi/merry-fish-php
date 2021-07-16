@@ -85,7 +85,7 @@ if(isset($_POST['submit_add'])) {
                         <div class="list">
                             <div class="list-item pl-0">
                                 <div class="list-thumb ml-0 mr-3 pr-3  b-r text-muted">
-                                    <i class="icon-On-Off-3"></i>
+                                    <i class="icon-Full-Cart"></i>
                                 </div>
                                 <div class="list-body">
                                     <div class="list-title fs-2x">
@@ -115,8 +115,9 @@ if(isset($_POST['submit_add'])) {
                         <thead>
                         <tr>
                             <!-- <th>Sr. No.</th> -->
-                            <th>Code</th>
+                            
                             <th>Name</th>
+                            <th>Code</th>
                             <!-- <th>MRP</th> -->
                             <th>Price</th>
                             <!-- <?php if ($ut==='1'){?><th>Price 2</th><?php }?> -->

@@ -92,7 +92,7 @@ if(isset($_POST['place_order_add']))
                         <div class="list">
                             <div class="list-item pl-0">
                                 <div class="list-thumb ml-0 mr-3 pr-3  b-r text-muted">
-                                    <i class="icon-On-Off-3"></i>
+                                    <i class="icon-Full-Cart"></i>
                                 </div>
                                 <div class="list-body">
                                     <div class="list-title fs-2x">
