@@ -16,7 +16,7 @@ $price1 = $row_ss['p_price1'];
 $price2 = $row_ss['p_price2'];
 
 
-if(isset($_POST['edit_ss'])){
+if(isset($_POST['edit_p'])){
     $p_name=$_POST['p_name'];
     $p_code=$_POST['p_code'];
     $p_cat = $_POST['p_cat'];
@@ -28,7 +28,7 @@ if(isset($_POST['edit_ss'])){
 
 
 
-    $sql="UPDATE `products` SET `p_name`='".$p_name."' ,`p_code`='".$code."',`sp_mod`='".$mod."',`sp_mrp`='".$mrp."',`sp_pack`='".$pack."' WHERE `sp_id`= ".$sp_id;
+    $sql="UPDATE `products` SET `p_name`='".$p_name."' ,`p_code`='".$p_code."',`p_cat`='".$p_cat."',`p_qty`='".$p_qty."',`p_lending_price`='".$p_lending_price."' , `p_mrp`='$p_mrp' , `p_price1`='$p_price1'  , `p_price2`='$p_price2'  WHERE `p_id`= ".$p_id;
     $sql_query=mysqli_query($con,$sql);
 
     header("location:product.php");
@@ -126,7 +126,7 @@ if(isset($_POST['edit_ss'])){
                             </div>
                             <div class="form-group">
                                 <label>Category</label>
-                                <input type="text" class="form-control" name="p_cat" placeholder="Product Mrp" value="<?php echo $cat; ?>">
+                                <input type="text" class="form-control" name="p_cat" placeholder="Product Category" value="<?php echo $cat; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Quantity</label>

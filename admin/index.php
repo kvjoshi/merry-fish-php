@@ -82,7 +82,7 @@ if(isset($_SESSION['u_id']))
                                         $_SESSION['u_email'] = $data['u_email'];
                                         $_SESSION['u_id'] = $data['u_id'];
                                         $_SESSION['u_name']= $data['u_name'];
-                                        //$_SESSION['role'] = $data['role'];
+                                        $_SESSION['u_role'] = $data['u_role'];
                                         header("location:dashboard.php");
                                     }
                                     else
