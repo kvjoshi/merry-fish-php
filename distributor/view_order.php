@@ -5,7 +5,7 @@ require 'session_check.php';
 $wx=0;
 if(isset($_GET['cid'])){
     $cart_id=$_GET['cid'];
-    $o_sql="SELECT * FROM `orders` WHERE `cart_id` = ".$cart_id;
+    $o_sql="SELECT * FROM `orders`  WHERE `cart_id` = ".$cart_id;
     $o_query=mysqli_query($con,$o_sql);
     $o_count=mysqli_num_rows($o_query);
     $c_sql="SELECT * FROM `cart` WHERE `cart_id` = ".$cart_id;
@@ -143,7 +143,7 @@ else{
                         <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Product Code</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Qty</th>
                             <th>Total Price</th>
@@ -155,7 +155,7 @@ else{
                             ?>
                             <tr>
                                 <td><?php echo $wx; ?></td>
-                                <td><?php echo $row['o_product_code'];?></td>
+                                <td><?php echo $row['o_product_name'];?></td>
                                 <td><?php echo $row['o_price'] ; ?></td>
                                 <td><?php echo $row['o_quantity']; ?></td>
                                 <td><?php echo $row['o_price_total']; ?></td>

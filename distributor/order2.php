@@ -21,6 +21,7 @@ if(isset($_POST['place_order_add']))
 {
 
     $prod_id=$_POST['prod_id'];
+    $prod_name = $_POST['prod_name'];
     $prod_price=$_POST['prod_price'];
     $prod_code=$_POST['prod_code'];
     $add_qty=$_POST['add_qty'];
@@ -34,7 +35,7 @@ if(isset($_POST['place_order_add']))
         $n_size= $size + 1;
         $cu_sql="UPDATE `cart` SET `cart_size`= '$n_size' , `o_price` = '$n_op'  WHERE cart_id =".$c_id;
         $cu_query=mysqli_query($con,$cu_sql);
-        $oadd_sql="INSERT INTO `orders`(`o_uid`, `cart_id`, `o_product_id`, `o_product_code`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$u_id','$c_id','$prod_id','$prod_code','$add_qty','$prod_price','$tot_p','$ut')";
+        $oadd_sql="INSERT INTO `orders`(`o_uid`, `cart_id`, `o_product_id`,`o_product_name`, `o_product_code`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$u_id','$c_id','$prod_id','$prod_name','$prod_code','$add_qty','$prod_price','$tot_p','$ut')";
         $oadd_query=mysqli_query($con,$oadd_sql);
         echo "<script>alert('Added To Cart');</script>";
     }
@@ -157,6 +158,7 @@ if(isset($_POST['place_order_add']))
                                     <form method="post" class="form-inline">
 
                                         <input type='hidden' name='prod_id' value="<?php echo $row['p_id'];?>">
+                                        <input type='hidden' name='prod_name' value="<?php echo $row['p_name'];?>">
                                         <input type='hidden' name='prod_code' value="<?php echo $row['p_code'];?>">
                                         <input type='hidden' name='prod_price' value="<?php if($ut==='1'){echo $row['p_price1'];} elseif($ut==='2'){echo $row['p_price2'];}?>">
                                         <input type='number' name='add_qty' class="form-control w-50 mr-3 ">

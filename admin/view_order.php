@@ -159,7 +159,7 @@ else{
                         <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Product Code</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Qty</th>
                             <th>Total Price</th>
@@ -171,7 +171,7 @@ else{
                             ?>
                             <tr>
                                 <td><?php echo $wx; ?></td>
-                                <td><?php echo $row['o_product_code'];?></td>
+                                <td><?php echo $row['o_product_name'];?></td>
                                 <td><?php echo $row['o_price'] ; ?></td>
                                 <td><?php echo $row['o_quantity']; ?></td>
                                 <td><?php echo $row['o_price_total']; ?></td>

@@ -142,7 +142,7 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <tr>
                                 <td><?php echo $wx; ?></td>
                                 <td><?php echo $row['cart_order'];?></td>
-                                <td><?php echo $row['cart_end_date'];?></td>
+                                <td><?php echo date("d-m-Y",strtotime($row['cart_end_date']));?></td>
                                 <td><?php echo $row['o_price'];?></td>
                                 <td><a style="text-decoration: none" href="view_order.php?cid=<?php echo $row['cart_id'];?>">Click Here</a></td>
                                 <td><?php echo $row['cart_size'];?></td>

@@ -247,7 +247,7 @@ if (isset($_GET['p'])){
                     <table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>Product Code</th>
+                            <th>Product Name</th>
                             <th>Price Per Item</th>
                             <th>Total Price</th>
                             <th>Qty</th>
@@ -260,7 +260,7 @@ if (isset($_GET['p'])){
                             ?>
                             <tr>
 
-                                <td><?php echo $row['o_product_code'];?></td>
+                                <td><?php echo $row['o_product_name'];?></td>
                                 <td><?php echo $row['o_price'] ; ?></td>
                                 <td><?php echo $row['o_price_total'] ; ?></td>
                                 <td><?php echo $row['o_quantity']; ?></td>
