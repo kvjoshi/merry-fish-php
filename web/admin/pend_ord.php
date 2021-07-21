@@ -140,7 +140,6 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <th>Sr. No.</th>
                             <th>Dist Name</th>
                             <th>Date</th>
-                            <th>Tier</th>
                             <th>Status</th>
                             <th>Amount</th>
                             <th>View Order | Confirm</th>
@@ -154,8 +153,7 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <tr>
                                 <td><?php echo $wx; ?></td>
                                 <td><?php echo $row['d_name'];?></td>
-                                <td><?php echo $row['cart_end_date'];?></td>
-                                <td><?php echo $row['d_tier'];?></td>
+                                <td><?php echo date("d-m-Y",strtotime($row['cart_end_date']));?></td>
                                 <td><?php if($row['cart_status']==1) { echo "Unconfirmed";} ?></td>
                                 <td>Rs <?php echo $row['o_price'];?></td>
                                 <td>

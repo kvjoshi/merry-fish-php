@@ -152,8 +152,8 @@ if(isset($_POST['stat_up'])){
                                             <select name="e_tier" id="e_tier" class="form-control">
 
                                             <option value="0" <?php if ($up_tier==0){ echo "selected";} ?> >Select Distributor Tier</option>
-                                            <option value="1" <?php if ($up_tier==1){ echo "selected";} ?> >Tier 1</option>
-                                            <option value="2" <?php if ($up_tier==2){ echo "selected";} ?> >Tier 2</option>
+                                            <option value="1" <?php if ($up_tier==1){ echo "selected";} ?> >Wholesaler</option>
+                                            <option value="2" <?php if ($up_tier==2){ echo "selected";} ?> >BVN</option>
                                             </select>
                                     </div>
                                         <div class="form-group">

@@ -206,7 +206,15 @@ if(isset($_POST['del_sub'])){
                                 <td><?php echo $row['d_phone'];?></td>
                                 <td><?php echo $row['d_email'];?></td>
                                 <td><?php echo $row['d_gst'];?></td>
-                                <td><?php echo $row['d_tier'];?></td>
+                                <td><?php
+                                    if($row['d_tier']==1){
+                                        echo "Wholesaler";
+                                    }
+                                    elseif($row['d_tier']==2){
+                                        echo "BVN";
+                                    }
+
+                                ?></td>
                                 <td><?php if($row['d_status']==1){ echo "Active";} elseif($row['d_status']==0){ echo "Inactive";}?></td>
                                 <td>
                                     <form name="edit<?php echo $wx; ?>" action="dist_edit.php" method="get">

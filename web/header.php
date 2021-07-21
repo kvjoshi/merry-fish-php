@@ -21,7 +21,7 @@
                                     Hi, <?php echo $_SESSION['u_name'];?>
                                 </span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdown-user">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
                 <div class="text-center p-3 pt-0 b-b mb-5">
                     <span class="mb-0 d-block font300 text-title fs-1x">Hi! <span class="font700"><?php echo $_SESSION['u_name'];?></span></span>
                     <span class="fs12 mb-0 text-muted">Distributor</span>

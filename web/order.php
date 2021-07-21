@@ -17,6 +17,7 @@ $prod_query=mysqli_query($con,$prod_sql);
 
 if(isset($_POST['submit_add'])) {
     $prod_id = $_POST['prod_id'];
+    $prod_name = $_POST['prod_name'];
     $prod_price = $_POST['prod_price'];
     $prod_code = $_POST['prod_code'];
     $add_qty = $_POST['add_qty'];
@@ -31,7 +32,7 @@ if(isset($_POST['submit_add'])) {
         $n_size = $size + 1;
         $cu_sql = "UPDATE `cart` SET `cart_size`= '$n_size' , `o_price` = '$n_op'  WHERE cart_id =" . $c_id;
         $cu_query = mysqli_query($con, $cu_sql);
-        $oadd_sql = "INSERT INTO `orders`(`o_uid`, `cart_id`, `o_product_id`, `o_product_code`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$u_id','$c_id','$prod_id','$prod_code','$add_qty','$prod_price','$tot_p','$ut')";
+        $oadd_sql = "INSERT INTO `orders`(`o_uid`, `cart_id`, `o_product_id`,`o_product_name`, `o_product_code`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$u_id','$c_id','$prod_id','$prod_name','$prod_code','$add_qty','$prod_price','$tot_p','$ut')";
         $oadd_query = mysqli_query($con, $oadd_sql);
         echo "<script>alert('Added To Cart');</script>";
     } else {
@@ -147,7 +148,7 @@ if(isset($_POST['submit_add'])) {
                                 <!-- <?php if($ut==='1'){ ?><td><?php echo $row['p_price2']; ?> </td> <?php }?> -->
                                 <!-- <td><?php echo $row['p_qty']; ?></td> -->
                                 <td>
-                                    <button class="btn btn-icon  btn-rounded  btn-outline-success add_prod" type="button" data-toggle="modal" data-target="#add_qty_modal" onclick="$add_prod_id = '<?php echo $row['p_id'];?>' ; $add_prod_code= '<?php echo $row['p_code'];?>'; $add_price= '<?php if($ut==='1'){echo $row['p_price1'];} elseif($ut==='2'){echo $row['p_price2'];}?>';">
+                                    <button class="btn btn-icon  btn-rounded  btn-outline-success add_prod" type="button" data-toggle="modal" data-target="#add_qty_modal" onclick="$add_prod_id = '<?php echo $row['p_id'];?>';$add_prod_name='<?php echo $row['p_name']?>' ; $add_prod_code= '<?php echo $row['p_code'];?>'; $add_price= '<?php if($ut==='1'){echo $row['p_price1'];} elseif($ut==='2'){echo $row['p_price2'];}?>';">
                                         <i class="fa fa-cart-plus"></i>   
                                         Add                         
                                     </button>
@@ -218,7 +219,7 @@ if(isset($_POST['submit_add'])) {
 <script>
     $(document).ready(function(){
         $(".add_prod").click(function(){
-            $("#add_modal_div").append("<input type='hidden' name='prod_id' value='"+$add_prod_id+"'> <input type='hidden' name='prod_price' value='"+$add_price+"'> <input type='hidden' name='prod_code' value='"+$add_prod_code+"'>");
+            $("#add_modal_div").append("<input type='hidden' name='prod_id' value='"+$add_prod_id+"'> <input type='hidden' name='prod_price' value='"+$add_price+"'> <input type='hidden' name='prod_code' value='"+$add_prod_code+"'> <input type='hidden' name='prod_name' value='"+$add_prod_name+"'>");
         });
     });
 </script>

@@ -139,7 +139,7 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <th>Order ID</th>
                             <th>Date</th>
                             <th>Dist Name</th>
-                            <th>Tier</th>
+                            <th>Cart Size</th>
 <!--                        <th>Tracking ID</th>      -->
                             <th>Status</th>
                             <th>Invoice Amount</th>
@@ -157,7 +157,7 @@ $ords_query=mysqli_query($con,$ords_sql);
                             <tr>
                                 <td><?php echo $wx; ?></td>
                                 <td><?php echo $row['cart_order'];?></td>
-                                <td><?php echo $row['cart_end_date'];?></td>
+                                <td><?php echo date("d-m-Y",strtotime($row['cart_end_date']));?></td>
                                 <td><?php echo $row['d_name'];?></td>
                                 <td><?php echo $row['cart_size'];?></td>
 <!--                                <td>--><?php //if ($row['cart_status']==2){ echo "Not Shipped";} elseif ($row['cart_status']==3){ echo $row['o_tracking_id']; }?>
