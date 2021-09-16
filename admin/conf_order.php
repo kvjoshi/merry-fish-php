@@ -3,15 +3,55 @@ session_start();
 include('connect.php');
 require 'session_check.php';
 $wx=0;
-if(isset($_POST['cid'])){
-$cart_id=$_POST['cid'];
+if(isset($_GET['cid'])){
+$cart_id=$_GET['cid'];
 $o_sql="SELECT * FROM `orders` WHERE `cart_id` = ".$cart_id;
 $o_query=mysqli_query($con,$o_sql);
+$o_query0=mysqli_query($con,$o_sql);
+$o_assoc=mysqli_fetch_assoc($o_query0);
+$user_teir=$o_assoc['o_user_teir'];
+$user_id=$o_assoc['o_uid'][0];
 $cart_sql="SELECT * FROM `cart` WHERE `cart_id` =".$cart_id;
 $cart_query=mysqli_query($con,$cart_sql);
 $cart_assoc=mysqli_fetch_assoc($cart_query);
 $cart_size=$cart_assoc['cart_size'];
 $cart_total=$cart_assoc['o_price'];
+
+
+if(isset($_POST['add_p'])){
+    $o_product_code=$_POST['o_product_code'];
+    $o_product_name=$_POST['o_product_name'];
+    $o_price=$_POST['o_price'];
+    $o_quantity=$_POST['o_quantity'];
+    $o_price_total=$_POST['o_quantity']*$_POST['o_price'];
+    $o_status=1;
+    $o_product_id=0;
+    $cart_new=$cart_total+$o_price_total;
+    $size_new=$cart_size+1;
+
+    $add_p_sql="INSERT INTO `orders`(`o_uid`, `cart_id`, `o_status`, `o_product_id`, `o_product_code`, `o_product_name`, `o_quantity`, `o_price`, `o_price_total`, `o_user_teir`) VALUES ('$user_id','$cart_id','$o_status','$o_product_id','$o_product_code','$o_product_name','$o_quantity','$o_price','$o_price_total','$user_teir')";
+    $add_p_query=mysqli_query($con,$add_p_sql);
+    $new_cart_sql="UPDATE `cart` SET `cart_size`='$size_new',`o_price`='$cart_new' WHERE `cart_id`='$cart_id'";
+    $new_cart_query=mysqli_query($con,$new_cart_sql);
+
+
+    header( "location:conf_order.php?cid=".$cart_id );
+}
+
+if(isset($_POST['del_sub'])){
+    $del_o_id=$_POST['order_id'];
+    $del_cart_id=$_POST['cart_id'];
+    $o_price_total=$_POST['o_price_total'];
+    $cart_new=$cart_total-$o_price_total;
+    $size_new=$cart_size-1;
+
+    $del_sql="DELETE FROM `orders` WHERE `o_id` = '$del_o_id'";
+    $del_query=mysqli_query($con,$del_sql);
+    $del_cart_sql="UPDATE `cart` SET `cart_size`='$size_new',`o_price`='$cart_new' WHERE `cart_id`='$cart_id'";
+    $del_cart_query=mysqli_query($con,$del_cart_sql);
+    header( "location:conf_order.php?cid=".$cart_id );
+
+}
 }
 else{
     header( "location:pend_ord.php" );
@@ -139,6 +179,13 @@ else{
 
                                         </div>
                                         -->
+                                        <div class="form-group col-lg-4 col-md-4  col-sm-6 p-3">
+                                            <button type="button" class="btn btn-icon btn-lg btn-light-primary mb-30" data-toggle="modal" data-target="#product_add">
+                                                <i class="icon-Add"></i>
+                                                Add Product
+                                            </button>
+
+                                        </div>
                                         </div>
                                         <div class="form-row ">
                                             <div class="form-group col-lg-3 col-md-4 col-sm-6">
@@ -162,6 +209,8 @@ else{
                             <th>Price</th>
                             <th>Qty</th>
                             <th>Total Price</th>
+                            <th>Action</th>
+
                         </tr>
                         </thead>
                         <tbody>
@@ -174,6 +223,18 @@ else{
                                 <td><?php echo $row['o_price'] ; ?></td>
                                 <td><?php echo $row['o_quantity']; ?></td>
                                 <td><?php echo $row['o_price_total']; ?></td>
+                                <td>
+                                    <form name="del<?php echo $wx; ?>" method="post">
+
+                                        <input type="hidden" name="order_id" value="<?php echo $row['o_id']; ?>" />
+                                        <input type="hidden" name="cart_id" value="<?php echo $row['cart_id']; ?>" />
+                                        <input type="hidden" name="o_price_total" value="<?php echo $row['o_price_total']; ?>" />
+                                        <button class="btn btn-icon btn-rounded btn-danger ml-1" type="submit" name="del_sub">
+                                            <i class="fa fa-trash"></i>
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -198,6 +259,47 @@ else{
                 </div>
             </div>
         </footer>
+
+        <div class="modal fade" id="product_add" tabindex="-1" role="dialog" aria-labelledby="product_addTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Product To Order</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="o_product_name" placeholder="Product Name">
+                                <input type="hidden" class="form-control" name="o_user_teir" value="<?php echo $user_teir ;?>">
+                                <input type="hidden" class="form-control" name="cid" value="<?php echo $_POST['cid'] ;?>">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="o_product_code" placeholder="Product Code">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="o_quantity" placeholder="Product Quantity">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="o_price" placeholder="Product Price">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" name="add_p" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
     </main><!-- page content end-->

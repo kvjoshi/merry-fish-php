@@ -264,19 +264,19 @@ if (isset($_POST['add_p'])){
                                 <input type="text" class="form-control" name="p_cat" placeholder="Product Category">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="p_qty" placeholder="Product Quantity">
+                                <input type="number" class="form-control" name="p_qty" placeholder="Product Quantity">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="p_lending_price" placeholder="Product Lending Price">
+                                <input type="number" class="form-control" name="p_lending_price" placeholder="Product Lending Price">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="p_mrp" placeholder="Product Mrp">
+                                <input type="number" class="form-control" name="p_mrp" placeholder="Product Mrp">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="p_price1" placeholder="Product Price 1">
+                                <input type="number" class="form-control" name="p_price1" placeholder="Product Price 1">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="p_price2" placeholder="Product Price 2">
+                                <input type="number" class="form-control" name="p_price2" placeholder="Product Price 2">
                             </div>
                         </div>
                         <div class="modal-footer">

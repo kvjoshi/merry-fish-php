@@ -157,7 +157,7 @@ $ords_query=mysqli_query($con,$ords_sql);
                                 <td><?php if($row['cart_status']==1) { echo "Unconfirmed";} ?></td>
                                 <td>Rs <?php echo $row['o_price'];?></td>
                                 <td>
-                                    <form method="post" action="conf_order.php" name="vnc" enctype="multipart/form-data">
+                                    <form method="get" action="conf_order.php" name="vnc" enctype="multipart/form-data">
                                     <input type="hidden" name="cid" value="<?php echo $row['cart_id'];?>">
                                     <button class="btn btn-icon btn-rounded btn-primary ml-1" type="submit" name="edit_sub">
                                         <i class="fa fa-check"></i>
