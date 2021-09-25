@@ -175,8 +175,8 @@ if (isset($_POST['add_p'])){
                             <th>Product Quantity</th>
                             <th>Product L.P.</th>
                             <th>Product MRP</th>
-                            <th>Product Price 1</th>
-                            <th>Product Price 2</th>
+                            <th>Product Wholesaler</th>
+                            <th>Product BVN</th>
                             <th>Last Update On | Posted On</th>
                             <th>Edit</th>
                             <th>Delete</th>

@@ -154,6 +154,7 @@ if(isset($_POST['stat_up'])){
                                             <option value="0" <?php if ($up_tier==0){ echo "selected";} ?> >Select Distributor Tier</option>
                                             <option value="1" <?php if ($up_tier==1){ echo "selected";} ?> >Wholesaler</option>
                                             <option value="2" <?php if ($up_tier==2){ echo "selected";} ?> >BVN</option>
+                                            <option value="2" <?php if ($up_tier==3){ echo "selected";} ?> >MRP</option>
                                             </select>
                                     </div>
                                         <div class="form-group">

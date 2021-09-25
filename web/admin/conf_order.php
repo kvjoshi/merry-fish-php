@@ -205,7 +205,7 @@ else{
                         <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Product Code</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Qty</th>
                             <th>Total Price</th>
@@ -219,7 +219,7 @@ else{
                             ?>
                             <tr>
                                 <td><?php echo $wx; ?></td>
-                                <td><?php echo $row['o_product_code'];?></td>
+                                <td><?php echo $row['o_product_name'];?></td>
                                 <td><?php echo $row['o_price'] ; ?></td>
                                 <td><?php echo $row['o_quantity']; ?></td>
                                 <td><?php echo $row['o_price_total']; ?></td>
@@ -272,25 +272,20 @@ else{
 
                     <form method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-
                             <div class="form-group">
                                 <input type="text" class="form-control" name="o_product_name" placeholder="Product Name">
                                 <input type="hidden" class="form-control" name="o_user_teir" value="<?php echo $user_teir ;?>">
                                 <input type="hidden" class="form-control" name="cid" value="<?php echo $_POST['cid'] ;?>">
                             </div>
-
                             <div class="form-group">
-                                <input type="text" class="form-control" name="o_product_code" placeholder="Product Code">
+                                <input type="text" class="form-control" name="o_product_code" placeholder="Product Code" value="00">
                             </div>
-
                             <div class="form-group">
                                 <input type="number" class="form-control" name="o_quantity" placeholder="Product Quantity">
                             </div>
-
                             <div class="form-group">
                                 <input type="number" class="form-control" name="o_price" placeholder="Product Price">
                             </div>
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

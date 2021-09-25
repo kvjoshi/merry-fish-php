@@ -30,11 +30,11 @@
                                         </span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><span class="nav-thumbnail">C-O</span>
-                                <a href="pend_ord.php">Pending Approval</a>
+                            <li><span class="nav-thumbnail">O-O</span>
+                                <a href="pend_ord.php">Orders</a>
                             </li>
-                            <li><span class="nav-thumbnail">P-O</span>
-                                <a href="past_ord.php">Past Orders</a>
+                            <li><span class="nav-thumbnail">O-B</span>
+                                <a href="past_ord.php">Bills</a>
                             </li>
 
                         </ul>
